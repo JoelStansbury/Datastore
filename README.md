@@ -6,7 +6,7 @@ Python module which loads and saves data structures based on the file extension
 Why can't python be more like my OS. I never have to explain how to read through a csv to windows. What? There are too many variables to consider? No says I. This module attempts to follow a **generic procedure for reading and writing common data storage formats using only the file extension for guidance**. If that fails, then yes, you probably should take the time to do it the right way.
 
 ### Objective
-The motivation here is as follows; Most of the time, the most generic approach to opening a file will work. It's usually not the fastest way, but if speed is not a bottleneck for you, you might as well spend your time manipulating the data as opposed loading it into python. The goal of Datastore is to make testing these generic approaches as fast as possible. If it doesn't work, well then you need to work through it the traditional way. Otherwise, you just skipped a monotonous task and can get on with real work.
+The motivation here is as follows; Most of the time, the most generic approach to opening a file will work. It's usually not the fastest way, but if speed is not a bottleneck for you, you might as well spend your time manipulating the data as opposed loading it into python. The goal of Datastore is to make testing these generic approaches as fast as possible. If it doesn't work, well at least you didn't waste much time. Otherwise, you just skipped a monotonous task and can get on with real work.
 
 
 

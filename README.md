@@ -5,7 +5,7 @@ Why can't python be more like my OS. I never have to explain how to read through
 
 Currently supported file structures: CSV TSV JSON PICKLE 
 
-(please let me know if you'd like to add more to this list)
+This is obviously not a normal use case, but it shows that the procedures for opening these file structures are identical, which is a nice change in my opinion.
 
 ```
 import Datastore

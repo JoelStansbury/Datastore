@@ -1,4 +1,5 @@
-# import numpy as np
+# Author: Joel Stansbury
+# May 8, 2019
 import json
 import pickle
 

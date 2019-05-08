@@ -33,11 +33,12 @@ def load_delimited(filename, delimiter):
         text = f.read()
     lines = text.split('\n')
     for l in lines:
-        row = l.split(delimiter)
-        datum = []
-        for d in row:
-            datum.append(parseUnknown(d))
-        data.append(datum)
+        if not l=='': #Don't parse empty lines
+            row = l.split(delimiter)
+            datum = []
+            for d in row:
+                datum.append(parseUnknown(d))
+            data.append(datum)
     return data
 
 def load_tsv(filename, args):
@@ -77,7 +78,10 @@ def save_delimited(data, filename, args, delimiter):
     def list_to_row(l):
         t = ''
         for i in l:
-            t = t+str(i)+delimiter
+            if i == None:
+                t = t+delimiter
+            else:
+                t = t+str(i)+delimiter
         t = t[:-1]+'\n'
         return t
     text = ''

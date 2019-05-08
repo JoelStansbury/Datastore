@@ -1,3 +1,5 @@
+# Author: Joel Stansbury
+# May 8, 2019
 import numpy as np
 import json
 import pickle

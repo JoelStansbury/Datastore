@@ -25,7 +25,7 @@ Datastore.save(d, 'test.json')
 # open it back up as a dict
 d = Datastore.load('test.json')
 
-# this time save it as a tsv (cannot go back to a dict)
+# this time save it as a tsv (will not go back to a dict on its own because some tsv's don't have headers)
 Datastore.save(d, 'test.tsv')
 
 # open it back up as a list of lists

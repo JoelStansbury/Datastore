@@ -7,6 +7,13 @@ Why can't python be more like my OS. I never have to explain how to read through
 
 
 ### Usage
+```
+Datastore.save(data, filename)
+data = Datastore.load(filename)
+```
+
+
+### Example
 This is obviously not a normal use case, but it shows that the procedures for opening these file structures are identical, which is a nice change in my opinion.
 
 ```

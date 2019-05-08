@@ -12,8 +12,8 @@ The motivation here is as follows; Most of the time, the most generic approach t
 
 ### Usage
 ```
-Datastore.save(data, filename)
-data = Datastore.load(filename)
+datastore.save(data, filename)
+data = datastore.load(filename)
 ```
 
 
@@ -21,50 +21,50 @@ data = Datastore.load(filename)
 This is obviously not a normal use case, but it shows that the procedures for opening these file structures are identical, which is a nice change in my opinion.
 
 ```
-import Datastore
+import datastore
 
 d = {'id': [1,2,3,4],'otherID':[4,3,2,1]}
 ```
 
 save this dict as a pickle
 ```
-Datastore.save(d, 'test.pkl')
+datastore.save(d, 'test.pkl')
 ```
 open it back up as a dict
 ```
-d = Datastore.load('test.pkl')
+d = datastore.load('test.pkl')
 ```
 save it again as a JSON
 ```
-Datastore.save(d, 'test.json')
+datastore.save(d, 'test.json')
 ```
 open it back up as a dict
 ```
-d = Datastore.load('test.json')
+d = datastore.load('test.json')
 ```
 this time save it as a tsv. Currently the default structure when opening csv's and tsv's is a list of lists. Though I plan to add functionality to detect a header by comparing the data types of the first row with the subsequent rows. If a header is detected, then the csv will be opened as a dict. This is a WIP though
 ```
-Datastore.save(d, 'test.tsv')
+datastore.save(d, 'test.tsv')
   ```
 open it back up as a list of lists
 ```
-d = Datastore.load('test.tsv')
+d = datastore.load('test.tsv')
 ```
 save the list of lists as a pickle again
 ```
-Datastore.save(d, 'test.pkl')
+datastore.save(d, 'test.pkl')
 ```
 open it back up
 ```
-d = Datastore.load('test.pkl')
+d = datastore.load('test.pkl')
 ```
 save it as a csv
 ```
-Datastore.save(d, 'test.csv')
+datastore.save(d, 'test.csv')
 ```
 open it back up
 ```
-d = Datastore.load('test.csv')
+d = datastore.load('test.csv')
 ```
 print out the result
 ```

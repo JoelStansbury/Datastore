@@ -103,7 +103,7 @@ def save_tsv(data, filename, args):
 
 '''
 Saves input data as a JSON
-Valid input data structures: dict
+Valid input data structures: dict, list, tuple, string, int, float, bool, None
 '''
 def save_json(data, filename, args):
     text = json.dumps(data)

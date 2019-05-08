@@ -31,7 +31,7 @@ open it back up as a dict
 ```
 d = Datastore.load('test.json')
 ```
-this time save it as a tsv (will not go back to a dict on its own because some tsv's don't have headers)
+this time save it as a tsv. Currently the default structure when opening csv's and tsv's is a list of lists. Though I plan to add functionality to detect a header by comparing the data types of the first row with the subsequent rows. If a header is detected, then the csv will be opened as a dict. This is a WIP though
 ```
 Datastore.save(d, 'test.tsv')
   ```

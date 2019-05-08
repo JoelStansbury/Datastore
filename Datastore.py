@@ -7,6 +7,8 @@ import pickle
 '''
 Assigns a datatype to a given string
 e.g. if a string can be parsed as an Int, parseUnknown will return that Integer
+
+Empty strings ('') are parsed as None
 '''
 def parseUnknown(val):
     if val == '':

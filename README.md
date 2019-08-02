@@ -23,7 +23,7 @@ This is obviously not a normal use case, but it shows that the procedures for op
 ```
 import datastore
 
-d = {'id': [1,2,3,4],'otherID':[4,3,2,1]}
+d = [{'id': [1,2,3,4],'otherID':[4,3,2,1]}]
 ```
 
 save this dict as a pickle

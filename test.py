@@ -1,6 +1,7 @@
 import datastore
+import os
 
-d = {'id': [1,2,3,4],'otherID':[4,3,2,1]}
+d = [{'id': [1,2,3,4],'otherID':[4,3,2,1]}]
 
 
 # save this dict as a pickle
@@ -15,11 +16,6 @@ datastore.save(d, 'test.json')
 # open it back up as a dict
 d = datastore.load('test.json')
 
-# this time save it as a tsv (cannot go back to a dict)
-datastore.save(d, 'test.tsv')
-
-# open it back up as a list of lists
-d = datastore.load('test.tsv')
 
 # save the list of lists as a pickle again
 datastore.save(d, 'test.pkl')

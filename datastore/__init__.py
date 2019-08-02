@@ -1,18 +1,26 @@
-import importlib
+import importlib.util
 import os
 
 filetypes = {}
 cwd = os.getcwd()
 dirname = os.path.dirname(__file__)
+print("dirname:",dirname)
 
-os.chdir(dirname)
-addons = os.listdir('extensions/')
+
+addons_dir = os.path.join(dirname,'extensions')
+print("addons:",addons_dir)
+
+
+addons = os.listdir(addons_dir)
 for fname in addons:
     if fname == '__pycache__':
         pass
     else:
-        filetypes[fname] = importlib.import_module('.' + fname,'extensions')
-os.chdir(cwd)
+        p = os.path.normpath(os.path.join(addons_dir,fname+'/__init__.py'))
+        spec = importlib.util.spec_from_file_location(fname, p)
+        filetypes[fname] = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(filetypes[fname])
+
 
 def load(fname, args = {}):
     ext = fname.split('.')[-1].lower()

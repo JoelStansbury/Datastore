@@ -1,7 +1,7 @@
-
+import pickle
 
 '''Retrieves the data structure preserved in the pickle'''
-def load_pickle(filename, args):
+def load(filename, args):
     with open(filename, 'rb') as f:
         return pickle.load(f)
 
@@ -10,7 +10,7 @@ def load_pickle(filename, args):
 Saves input data as a pickle
 Valid input data structures: ALL
 '''
-def save_pickle(data, filename, args):
+def save(data, filename, args):
     with open(filename, 'wb') as f:
         pickle.dump(data, f)
 

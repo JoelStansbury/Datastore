@@ -16,6 +16,14 @@ datastore.save(data, filename)
 data = datastore.load(filename)
 ```
 
+### Adding More File Handlers
+To add another file extension you ...
+
+* create a folder under datastore/extensions/ with the name of the extension. e.g. if you want to make a handler that can deal with "nonsense.foo" this folder would be named "foo" __in all lowercase letters__
+* create a file named `__init__.py`
+* in `__init__.py` you must make two functions `load(fname, args)` and `save(data, fname, args)` which must be able to load and save the file properly. args is a dictionary you may use to provide more control over how the functions work
+
+Take a look through the file structure if this does not make sense. It is easier to see the pattern than it is to explain
 
 ### Example
 This is obviously not a normal use case, but it shows that the procedures for opening these file structures are identical, which is a nice change in my opinion.

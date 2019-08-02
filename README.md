@@ -1,5 +1,5 @@
 # Datastore
-### Currently supported file structures: CSV TSV JSON PICKLE 
+### Currently supported file structures: CSV WAV JSON PICKLE 
 Python module which loads and saves data structures based on the file extension
 
 
@@ -42,15 +42,8 @@ open it back up as a dict
 ```
 d = datastore.load('test.json')
 ```
-this time save it as a tsv. Currently the default structure when opening csv's and tsv's is a list of lists. Though I plan to add functionality to detect a header by comparing the data types of the first row with the subsequent rows. If a header is detected, then the csv will be opened as a dict. This is a WIP though
-```
-datastore.save(d, 'test.tsv')
-  ```
-open it back up as a list of lists
-```
-d = datastore.load('test.tsv')
-```
-save the list of lists as a pickle again
+
+save it as a pickle again
 ```
 datastore.save(d, 'test.pkl')
 ```

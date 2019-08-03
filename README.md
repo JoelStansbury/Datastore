@@ -22,10 +22,13 @@ The motivation here is as follows; Most of the time, the most generic approach t
 
 
 ### Usage
+First you need to download the folder named "Datastore" and paste it in your working directory.
 ```
 datastore.save(data, filename)
 data = datastore.load(filename)
 ```
+
+Alternatively, if you want to start from scratch, making all of your own file handlers, then you only need a folder (called whatever you want the module to be named), inside of that you need an `__init__.py` (identical to the one in my `datastore` folder) and an empty folder named `extensions` into which you will place your own file handlers.
 
 ### Adding More File Handlers
 To add another file extension you ...

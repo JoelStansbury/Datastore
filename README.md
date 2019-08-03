@@ -1,11 +1,22 @@
 # Datastore
 ### Currently supported file structures: CSV WAV JSON PICKLE 
-Python module which loads and saves data structures based on the file extension
+Python module which loads and saves data structures based on the file extension. 
 
+### Dependencies
+* json
+* csv
+* wave
+* struct
+* importlib
+* os
+* pickle
 
-Why can't python be more like my OS. I never have to explain how to read through a csv to windows. What? There are too many variables to consider? No says I. This module attempts to follow a **generic procedure for reading and writing common data storage formats using only the file extension for guidance**. If that fails, then yes, you probably should take the time to do it the right way.
+All of which are included with python, so there are **no installs required**
+
 
 ### Objective
+This module attempts to follow a **generic procedure for reading and writing common data storage formats using only the file extension for guidance**.
+
 The motivation here is as follows; Most of the time, the most generic approach to opening a file will work. It's may not be the most computationaly efficient way, but if loading time is not a bottleneck for your workflow, you might as well spend your time manipulating the data as opposed figuring out how to load it into python. The goal of Datastore is to make implementing these generic approaches as fast as possible. If it doesn't work, well at least you didn't waste much time. Otherwise, you just skipped a monotonous task and can get on with real work.
 
 

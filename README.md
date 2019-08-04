@@ -19,7 +19,8 @@ This module attempts to follow a **generic procedure for reading and writing com
 
 The motivation here is as follows; Most of the time, the most generic approach to opening a file will work. It's may not be the most computationaly efficient way, but if loading time is not a bottleneck for your workflow, you might as well spend your time manipulating the data as opposed figuring out how to load it into python. The goal of Datastore is to make implementing these generic approaches as fast as possible. If it doesn't work, well at least you didn't waste much time. Otherwise, you just skipped a monotonous task and can get on with real work.
 
-
+### Installation
+`pip install loadsave`
 
 ### Usage
 First you need to download the folder named "Datastore" and paste it in your working directory.
@@ -33,11 +34,8 @@ Alternatively, if you want to start from scratch, making all of your own file ha
 ### Adding More File Handlers
 To add another file extension you ...
 
-* create a folder under datastore/extensions/ with the name of the extension. e.g. if you want to make a handler that can deal with "nonsense.foo" this folder would be named "foo" __in all lowercase letters__
-* create a file named `__init__.py`
-* in `__init__.py` you must make two functions `load(fname, args)` and `save(data, fname, args)` which must be able to load and save the file properly. args is a dictionary you may use to provide more control over how the functions work
-
-Take a look through the file structure if this does not make sense. It is easier to see the pattern than it is to explain
+* create a class in `__init__.py` which contains a `save(self,data,fname,args)` and `load(self,fname,args)`
+* add your new class to the `filetypes` dictionary (just below all of the class definitions). Follow syntax {extension abbreviation:class object}
 
 ### Example
 This is obviously not a normal use case, but it shows that the procedures for opening these file structures are identical, which is a nice change in my opinion.

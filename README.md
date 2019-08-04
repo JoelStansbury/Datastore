@@ -51,3 +51,18 @@ loadsave.save(d, 'test.pkl')
 
 However, if `d = [0,1,2,3,4]` you could call `loadsave.save((d,44100),'test.wav')`. `csv`s require a list of dictionaries, so trying to save _this_ as a csv will fail
 
+
+
+
+### File Types
+#### CSV
+* This is just a wrapper for csv.DictReader() / csv.DictWritter()
+* The data must be a list of dictionaries
+#### WAV
+* Restricted to 16-bit audio
+* Can handle stereo/multi-channel waveforms
+* Data must be a list or tuple of the form (waveform, samplerate), just like it is provided from `loadsave.load('example.wav')`
+#### PICKLE
+* This should work with any data structure in python.
+#### JSON
+* Can hanle `dict`, `list`, `str`, `int`, `float`, `bool`, and `None`

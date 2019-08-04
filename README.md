@@ -23,63 +23,31 @@ The motivation here is as follows; Most of the time, the most generic approach t
 `pip install loadsave`
 
 ### Usage
-First you need to download the folder named "Datastore" and paste it in your working directory.
+
 ```
-datastore.save(data, filename)
-data = datastore.load(filename)
+import loadsave
+
+loadsave.save(data, filename)
+data = loadsave.load(filename)
 ```
-
-Alternatively, if you want to start from scratch, making all of your own file handlers, then you only need a folder (called whatever you want the module to be named), inside of that you need an `__init__.py` (identical to the one in my `datastore` folder) and an empty folder named `extensions` into which you will place your own file handlers.
-
-### Adding More File Handlers
-To add another file extension you ...
-
-* create a class in `__init__.py` which contains a `save(self,data,fname,args)` and `load(self,fname,args)`
-* add your new class to the `filetypes` dictionary (just below all of the class definitions). Follow syntax {extension abbreviation:class object}
+Saving data can be a bit unintuitive. 
+* `csv` requires data to be a list of dictionaries
+* `wav` requires data to be a tuple or list of the form `(y,sr)` exactly how it would be returned by `load('example.wav')`
 
 ### Example
 This is obviously not a normal use case, but it shows that the procedures for opening these file structures are identical, which is a nice change in my opinion.
 
 ```
-import datastore
+import loadsave
 
 d = [{'id': [1,2,3,4],'otherID':[4,3,2,1]}]
 ```
 
 save this dict as a pickle
 ```
-datastore.save(d, 'test.pkl')
+loadsave.save(d, 'test.pkl')
 ```
-open it back up as a dict
-```
-d = datastore.load('test.pkl')
-```
-save it again as a JSON
-```
-datastore.save(d, 'test.json')
-```
-open it back up as a dict
-```
-d = datastore.load('test.json')
-```
+`'test.pkl'` can be replaced with `'test.json'`, or `'test.csv'`. Attempting to save it to `'test.wav'` will return an error, because `d` is not an acceptable format for an audio waveform.
 
-save it as a pickle again
-```
-datastore.save(d, 'test.pkl')
-```
-open it back up
-```
-d = datastore.load('test.pkl')
-```
-save it as a csv
-```
-datastore.save(d, 'test.csv')
-```
-open it back up
-```
-d = datastore.load('test.csv')
-```
-print out the result
-```
-print(d)
-```
+However, if `d = [0,1,2,3,4]` you could call `loadsave.save((d,44100),'test.wav')`. `csv`s require a list of dictionaries, so trying to save _this_ as a csv will fail
+
